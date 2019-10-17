@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box1 {
+            margin: 100px;
+            width: 400px;
+            height: 400px;
+            background-color: #f30;
+        }
+
+        .box {
+            margin: 100px;
+            width: 5s0px;
+            height: 50px;
+            background-color: #f80;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function loadScript(url,callback){
+            var script = document.createElement("script");
+                script.type ="text/javascript";
+                if(script.readyState){
+                    script.onreadystatechange = function (){
+                        if(script.readyState == "complete" || script.readyState == "loaded"){
+                            callback();//第一种
+                            tools[callback]();//第二种
+                        }
+                    }
+                }else{
+                    script.onload = function (){
+                        callback();//第一种
+                        tools[callback]();//第二种
+                    }
+                }
+                script.src = url;
+                document.head.appendChild(script);
+        }
+        //使用
+        loadScript("demo.js",function(){})
+        /*
+        demo.js种
+        tools = {
+            test : function(){}
+        }
+         loadScript("demo.js","test")
+        */
+    </script>
+    <table style="width: 100%">
+        <tr>
+            <td>q</td>
+            <td>5</td>
+        </tr>
+
+
+    </table>
+</bod
